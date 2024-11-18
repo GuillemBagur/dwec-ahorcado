@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El ahorcado</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <span id="cronometro" class="cronometro"></span>
+
+    <h1 class="titulo">El juego del ahorcado</h1>
+    <h2 class="display-vidas">Tienes <span class="contador-vidas" id="contador-vidas"></span> vidas</h2>
+    <h2 class="msg-fin-juego" id="msg-fin-juego">Has ganado</h2>
+
+
+    <div id="contenedor" class="contenedor">
+        <div class="display-palabra" id="display-palabra"></div>
+
+        <div class="abecedario" id="abecedario">
+            
+        </div>
+    </div>
+    
+    <script src="init-vars.js"></script>
+    <script src="crono.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

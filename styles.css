@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 1rem;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    background-color: rgb(255, 248, 219);
+}
+
+.cronometro {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    background-color: rgb(36, 23, 23);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 0 0 20px 20px;
+}
+
+.titulo {
+    display: block;
+    margin: auto;
+    margin-top: 4rem;
+    background-color: rgb(131, 90, 15);
+    color: white;
+    padding: .9rem 1.8rem;
+    border-radius: 100px;
+    width: fit-content;
+}
+
+.display-vidas {
+    display: block;
+    margin: auto;
+    padding: .7rem 1.5rem;
+    width: fit-content;
+    background-color: rgb(36, 23, 23);
+    border-radius: 0 0 20px 20px;
+    color: white;
+}
+
+.contador-vidas {
+    color: rgb(255, 184, 53);
+}
+
+.abecedario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+    width: 80%;
+    max-width: 30rem;
+    margin: auto;
+}
+
+.letra {
+    padding: 1rem;
+    background-color: rgb(36, 23, 23);
+    color: rgb(255, 242, 207);
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    transition: background-color .2s;
+}
+
+.letra:hover {
+    background-color: rgb(70, 44, 44);
+}
+
+.letra.correcta {
+    background-color: rgb(61, 124, 32);
+}
+
+.letra.incorrecta {
+    background-color: rgb(255, 46, 31);
+}
+
+.display-palabra {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.guion-letra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 5px solid rgb(36, 23, 23);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 2rem;
+}
