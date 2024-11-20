@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,47 @@
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <span id="cronometro" class="cronometro"></span>
 
-    <h1 class="titulo">El juego del ahorcado</h1>
-    <h2 class="display-vidas">Tienes <span class="contador-vidas" id="contador-vidas"></span> vidas</h2>
-    <h2 class="msg-fin-juego" id="msg-fin-juego">Has ganado</h2>
+    <div class="modal" id="msg-fin-juego-container">
+        <span id="msg-fin-juego"></span>
 
-
-    <div id="contenedor" class="contenedor">
-        <div class="display-palabra" id="display-palabra"></div>
-
-        <div class="abecedario" id="abecedario">
-            
-        </div>
+        <button class="btn-bloque" id="reiniciar-juego" type="button">Reiniciar juego</button>
     </div>
+
+    <form id="crear-nuevo-jugador" class="modal mostrar">
+        <span class="modal-titulo">Elige un jugador</span>
+
+        <ul class="jugadores-guardados" id="jugadores-guardados"></ul>
+
+        <label class="modal-titulo" for="nombre-nuevo-jugador">...o crea uno de nuevo</label>
+        <input autocomplete="off" type="text" id="nombre-nuevo-jugador" class="nombre-nuevo-jugador"
+            placeholder="El nombre no puede estar repetido" />
+
+        <button type="submit" class="btn-bloque">Crear</button>
+    </form>
+
+    <div class="mostrar-nombre-jugador" id="mostrar-nombre-jugador"></div>
+    <span id="cronometro" class="cronometro"></span>
     
-    <script src="init-vars.js"></script>
-    <script src="crono.js"></script>
-    <script src="script.js"></script>
+    <main class="main" id="main">
+        <img src="imgs/ahorcado/1.png" alt="Ahorcado" id="monigote" class="monigote">
+        <h1 class="titulo">El juego del ahorcado</h1>
+        <h2 class="display-vidas">Tienes <span class="contador-vidas" id="contador-vidas"></span> vidas</h2>
+        <div id="contenedor" class="contenedor">
+            <div class="display-palabra" id="display-palabra"></div>
+            <div class="abecedario" id="abecedario">
+
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/jugadores.js"></script>
+    <script src="./js/monigote.js"></script>
+    <script src="./js/stats.js"></script>
+    <script src="./js/crono.js"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>

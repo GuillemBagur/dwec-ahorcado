@@ -10,6 +10,14 @@ body {
     background-color: rgb(255, 248, 219);
 }
 
+.main {
+    transition: 1s;
+}
+
+.main.desactivado  {
+    filter: blur(10px);
+}
+
 .cronometro {
     position: fixed;
     top: 0;
@@ -26,12 +34,54 @@ body {
 .titulo {
     display: block;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 3rem;
     background-color: rgb(131, 90, 15);
     color: white;
     padding: .9rem 1.8rem;
     border-radius: 100px;
     width: fit-content;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 1rem;
+    width: 90%;
+    max-width: 23rem;
+    background-color: rgb(255, 248, 219);
+    border-radius: 8px;
+    z-index: 4;
+    box-shadow: 5px 0 20px 1px rgba(3, 3, 3, 0.5);
+    transform: translate(-50%, 110vh);
+    transition: transform 1s;
+}
+
+.modal-titulo {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: .3rem;
+}
+
+.modal * {
+    color: rgb(36, 23, 23);
+}
+
+.modal.mostrar {
+    transform: translate(-50%, -50%);
+}
+
+.btn-bloque {
+    background-color: rgb(36, 23, 23);
+    color: rgb(255, 242, 207);
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    padding: .5rem 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 .display-vidas {
@@ -99,4 +149,50 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 2rem;
+}
+
+.monigote {
+    z-index: 0;
+    height: 18rem;
+    margin-top: 5rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.nombre-nuevo-jugador {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: .7rem;
+    border: 2px solid rgb(70, 44, 44);
+    border-radius: 7px;
+    font-size: 1rem;
+}
+
+.mostrar-nombre-jugador {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(70, 44, 44);
+    color: white;
+    padding: .8rem;
+    max-width: 7em;
+    white-space: nowrap;
+    border-bottom-left-radius: 10px;
+}
+
+.jugadores-guardados {
+    padding: .5rem 0;
+    overflow: auto;
+    max-height: 20rem;
+    list-style: none;
+}
+
+.jugador-guardado {
+    display: block;
+    background-color: rgb(70, 44, 44);
+    color: white;
+    margin-bottom: .5rem;
+    padding: .8rem;
+    border-radius: 300px;
 }
