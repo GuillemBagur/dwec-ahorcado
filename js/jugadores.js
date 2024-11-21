@@ -32,6 +32,14 @@ function agregarJugador(nuevoJugador) {
     guardarJugadores(jugadores);
 }
 
+function borrarJugador(indice) {
+    let jugadores = cargarNombresJugadoresGuardados();
+    
+    jugadores.splice(indice, 1);
+    guardarJugadores(jugadores);
+    dibujarNombresJugadoresGuardados();
+}
+
 function dibujarNombreUsuario(nombreUsuario) {
     domMostrarNombreJugador.innerHTML = nombreUsuario;
 }
@@ -45,13 +53,14 @@ function dibujarNombresJugadoresGuardados() {
     function crearBtnEliminarJugador(idJugador) {
         const domEliminarJugador = document.createElement("button");
         domEliminarJugador.classList.add("btn-eliminar-jugador");
-        domEliminarJugador.dataset["id-jugador"] = idJugador;
-        domEliminarJugador.innerHTML = "x"
+        domEliminarJugador.dataset.idJugador = idJugador;
+        domEliminarJugador.innerHTML = "<img src='/imgs/iconos/x.svg' class='btn-eliminar-jugador-icono' />"
 
         return domEliminarJugador;
     }
 
     const jugadores = cargarNombresJugadoresGuardados();
+    domJugadoresGuardados.innerHTML = "";
 
     for (let i = 0; i < jugadores.length; i ++) {
         const jugador = jugadores[i];
@@ -88,6 +97,8 @@ domJugadoresGuardados.addEventListener("click", function (e) {
 
         domCrearNuevoJugador.classList.remove("mostrar");
         activarMain();
+    } else if(e.target.classList.contains("btn-eliminar-jugador")) {
+        borrarJugador(e.target.dataset.idJugador);
     }
 });
 

@@ -208,6 +208,9 @@ img {
 
 .btn-eliminar-jugador {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     right: 0;
     top: 0;
     height: 100%;
@@ -216,6 +219,12 @@ img {
     border: 5px solid rgb(70, 44, 44);
     background-color: white;
     cursor: pointer;
+}
+
+.btn-eliminar-jugador-icono {
+    display: inline-block;
+    height: 70%;
+    width: 70%;
 }
 
 .efecto-hover {

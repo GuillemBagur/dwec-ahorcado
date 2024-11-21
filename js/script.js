@@ -51,7 +51,7 @@ function initPalabra() {
 
     palabraAdivinar = PALABRAS[Math.floor(Math.random() * PALABRAS.length)].toUpperCase();
 
-    palabraAdivinar = PALABRAS[0].toUpperCase();
+    //palabraAdivinar = PALABRAS[0].toUpperCase();
 
     generarGuionesPalabra(palabraAdivinar);
 }
