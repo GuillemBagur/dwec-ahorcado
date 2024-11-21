@@ -94,7 +94,7 @@ function checkWin() {
 }
 
 function pintarVidas() {
-    domContadorVidas.innerHTML = vidas;
+    domContadorVidas.innerHTML = `${vidas} ${vidas > 1 ? "vidas" : "vida"}`;
 }
 
 function restarVidas() {
@@ -136,7 +136,7 @@ function mostrarFinJuego(isWin) {
 
     if (isWin) {
         domMsgFinJuego.innerHTML = "¡Has ganado!";
-        const registro = new Record(palabraAdivinar, vidas, calcularIntentos(), obtenerSegundosTotalesCrono());
+        const registro = new Record(jugador, palabraAdivinar, vidas, calcularIntentos(), obtenerSegundosTotalesCrono());
         registro.guardar();
 
     } else {

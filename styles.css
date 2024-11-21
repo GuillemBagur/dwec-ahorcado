@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body {
@@ -8,6 +9,10 @@ body {
     font-family: Helvetica, sans-serif;
     text-align: center;
     background-color: rgb(255, 248, 219);
+}
+
+img {
+    pointer-events: none;
 }
 
 .main {
@@ -34,7 +39,7 @@ body {
 .titulo {
     display: block;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     background-color: rgb(131, 90, 15);
     color: white;
     padding: .9rem 1.8rem;
@@ -154,7 +159,7 @@ body {
 .monigote {
     z-index: 0;
     height: 18rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
     border-radius: 8px;
     position: relative;
 }
@@ -179,6 +184,7 @@ body {
     max-width: 7em;
     white-space: nowrap;
     border-bottom-left-radius: 10px;
+    text-transform: capitalize;
 }
 
 .jugadores-guardados {
@@ -190,9 +196,47 @@ body {
 
 .jugador-guardado {
     display: block;
+    position: relative;
     background-color: rgb(70, 44, 44);
     color: white;
     margin-bottom: .5rem;
     padding: .8rem;
     border-radius: 300px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.btn-eliminar-jugador {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 5px solid rgb(70, 44, 44);
+    background-color: white;
+    cursor: pointer;
+}
+
+.efecto-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.efecto-hover::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    border-radius: inherit;
+    opacity: .1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform .5s;
+}
+
+.efecto-hover:hover::before {
+    transform: translateX(0);
 }

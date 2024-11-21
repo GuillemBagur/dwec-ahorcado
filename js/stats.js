@@ -1,7 +1,8 @@
 class Record {
     static NOMBRE_LS = "datos-ahorcado";
 
-    constructor(palabra, vidasRestantes, intentos, tiempoFinal) {
+    constructor(jugador, palabra, vidasRestantes, intentos, tiempoFinal) {
+        this.jugador = jugador;
         this.palabra = palabra;
         this.vidasRestantes = vidasRestantes;
         this.intentos = intentos;
@@ -9,7 +10,7 @@ class Record {
         this.fecha = new Date();
 
         this.obtenerDatos = function () {
-            const datos = JSON.parse(localStorage.getItem(Record.NOMBRE_LS));
+            const datos = JSON.parse(localStorage.getItem(this.crearNombreLS()));
 
             if (!datos) {
                 return {};
@@ -41,7 +42,11 @@ class Record {
                 datos[this.palabra] = this;
             }
 
-            localStorage.setItem(Record.NOMBRE_LS, JSON.stringify(datos));
+            localStorage.setItem(this.crearNombreLS(), JSON.stringify(datos));
         };
+    }
+
+    crearNombreLS() {
+        return `${this.jugador}-${Record.NOMBRE_LS}`;
     }
 }

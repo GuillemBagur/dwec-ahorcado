@@ -1,4 +1,4 @@
-let usuario;
+let jugador;
 
 const domMostrarNombreJugador = document.getElementById("mostrar-nombre-jugador");
 const domJugadoresGuardados = document.getElementById("jugadores-guardados");
@@ -11,10 +11,25 @@ function cargarNombresJugadoresGuardados() {
     const datos = JSON.parse(localStorage.getItem("ahorcado-usuarios-guardados"));
 
     if (!datos) {
-        return ["guiem", "bart skils!"];
+        return [];
     }
 
     return datos;
+}
+
+function guardarJugadores(jugadores) {
+    localStorage.setItem("ahorcado-usuarios-guardados", JSON.stringify(jugadores));
+}
+
+function agregarJugador(nuevoJugador) {
+    let jugadores = cargarNombresJugadoresGuardados();
+
+    if (jugadores.includes(nuevoJugador)) {
+        return;
+    }
+
+    jugadores.push(nuevoJugador);
+    guardarJugadores(jugadores);
 }
 
 function dibujarNombreUsuario(nombreUsuario) {
@@ -22,17 +37,32 @@ function dibujarNombreUsuario(nombreUsuario) {
 }
 
 function asignarUsuario(nombreUsuario) {
-    usuario = nombreUsuario;
-    dibujarNombreUsuario(usuario);
+    jugador = nombreUsuario;
+    dibujarNombreUsuario(jugador);
 }
 
 function dibujarNombresJugadoresGuardados() {
+    function crearBtnEliminarJugador(idJugador) {
+        const domEliminarJugador = document.createElement("button");
+        domEliminarJugador.classList.add("btn-eliminar-jugador");
+        domEliminarJugador.dataset["id-jugador"] = idJugador;
+        domEliminarJugador.innerHTML = "x"
+
+        return domEliminarJugador;
+    }
+
     const jugadores = cargarNombresJugadoresGuardados();
 
-    for (let jugador of jugadores) {
+    for (let i = 0; i < jugadores.length; i ++) {
+        const jugador = jugadores[i];
+
         const domJugador = document.createElement("li");
+
         domJugador.innerHTML = jugador;
         domJugador.classList.add("jugador-guardado");
+        domJugador.classList.add("efecto-hover");
+        domJugador.appendChild(crearBtnEliminarJugador(i));
+
         domJugadoresGuardados.appendChild(domJugador);
     }
 }
@@ -40,12 +70,16 @@ function dibujarNombresJugadoresGuardados() {
 domCrearNuevoJugador.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (domNombreNuevoJugador.value) {
-        asignarUsuario(domNombreNuevoJugador.value);
+    let nombreJugador = domNombreNuevoJugador.value;
+    nombreJugador = nombreJugador.toLowerCase();
+
+    if (nombreJugador) {
+        agregarJugador(nombreJugador);
+        asignarUsuario(nombreJugador);
+        domCrearNuevoJugador.classList.remove("mostrar");
+        activarMain();
     }
 
-    domCrearNuevoJugador.classList.remove("mostrar");
-    activarMain();
 });
 
 domJugadoresGuardados.addEventListener("click", function (e) {
