@@ -10,7 +10,7 @@ class Record {
         this.fecha = new Date();
 
         this.obtenerDatos = function () {
-            const datos = JSON.parse(localStorage.getItem(this.crearNombreLS()));
+            const datos = JSON.parse(localStorage.getItem(Record.crearNombreLS(this.jugador)));
 
             if (!datos) {
                 return {};
@@ -42,11 +42,11 @@ class Record {
                 datos[this.palabra] = this;
             }
 
-            localStorage.setItem(this.crearNombreLS(), JSON.stringify(datos));
+            localStorage.setItem(Record.crearNombreLS(this.jugador), JSON.stringify(datos));
         };
     }
 
-    crearNombreLS() {
-        return `${this.jugador}-${Record.NOMBRE_LS}`;
+    static crearNombreLS(nombreJugador) {
+        return `${nombreJugador}-${Record.NOMBRE_LS}`;
     }
 }

@@ -15,7 +15,7 @@ const domMsgFinJuego = document.getElementById("msg-fin-juego");
 const domReiniciarJuego = document.getElementById("reiniciar-juego");
 const domMain = document.getElementById("main");
 
-const VIDAS_INICIO = 6;
+const VIDAS_INICIO = 7;
 
 let palabraAdivinar;
 let vidas = VIDAS_INICIO;
@@ -28,13 +28,26 @@ function calcularIntentos() {
 }
 
 function generarGuionesPalabra(palabra) {
-    for (let i = 0; i < palabra.length; i++) {
-        let domGuionLetra = document.createElement("div");
-        domGuionLetra.classList.add("guion-letra");
-        // Mejor usar dataset que clases.
-        domGuionLetra.dataset.letra = palabra[i];
+    if(!/[A-Z\s]+/.test(palabra)) {
+        console.log("Palabra incorrecta.");
+        return;
+    }
 
-        domDisplayPalabra.appendChild(domGuionLetra);
+    for (let i = 0; i < palabra.length; i++) {
+        // Si la letra es un espacio, debe representarse en el juego
+        if(palabra[i] === " ") {
+            let domEspacio = document.createElement("div");
+            domEspacio.classList.add("guion-espacio");
+            domDisplayPalabra.appendChild(domEspacio);
+
+        } else {
+            let domGuionLetra = document.createElement("div");
+            domGuionLetra.classList.add("guion-letra");
+            // Mejor usar dataset que clases.
+            domGuionLetra.dataset.letra = palabra[i];
+            
+            domDisplayPalabra.appendChild(domGuionLetra);
+        }
     }
 }
 
@@ -46,13 +59,55 @@ function initJuego() {
     desactivarMain();
 }
 
+function obtenerCategoriasDesdeUrl() {
+    let params = new URLSearchParams(document.location.search);
+    let categorias = params.getAll("categoria");
+
+    return categorias;
+}
+
+function combinarCateogorias(categorias, palabras) {
+    let categoriasCombinadas = [];
+
+    // Si el usuario no ha elegido ninguna categoría, se eligirán todas
+    if(categorias.length === 0) {
+        categorias = Object.keys(palabras);
+    } 
+
+    for(let categoria of categorias) {
+        if(palabras[categoria]) {
+            categoriasCombinadas = [...categoriasCombinadas, ...palabras[categoria]];
+        }
+    }
+
+    return categoriasCombinadas;
+}
+
 function initPalabra() {
-    const PALABRAS = ["A", "AÑA", "TECNOLOGÍA", "INFORMÁTICA", "JAVA", "ORDENADOR", "MONTAÑA"];
+    let categorias = obtenerCategoriasDesdeUrl();
 
-    palabraAdivinar = PALABRAS[Math.floor(Math.random() * PALABRAS.length)].toUpperCase();
+    const PALABRAS = {
+        informática: [
+            "JAVA", "DOMINIO", "LINUX", "SERVIDOR", "FRAMEWORK", "TERMINAL", "JAVASCRIPT", "PHP", "WINDOWS", "MACINTOSH", "MICROSOFT", "GOOGLE", "APPLE", "TECLADO", "LIBRERÍA",
+        ],
 
-    //palabraAdivinar = PALABRAS[0].toUpperCase();
+        deportes: [
+            "GOL", "ATLETISMO", "BICICLETA", "PELOTA", "META", "ENTRENAR", "FUTBOL", "BALONCESTO", "VOLEIBOL", "HOCKEY", "MÚSCULO",
+        ],
 
+        música: [
+            "GUITARRA", "ACORDEÓN", "SINTETIZADOR", "PIANO", "TROMPETA", "MELODÍA", "NOTA", "RITMO", "POLIRRITMIA", "ACORDE", "ARPEGIO", "OSTINATO", "OCTAVA", "HARMONÍA",
+        ],
+
+        países: [
+            "ESPAÑA", "FRANCIA", "ALEMANIA", "ITALIA", "FINLANDIA", "ESTADOS UNIDOS", "RUMANÍA", "ALBANIA", "REINO UNIDO", "EGIPTO", "UCRANIA", "PAÍSES BAJOS", "JAPÓN", "ARGENTINA",
+        ]
+    }
+
+    const categoriasCombinadas = combinarCateogorias(categorias, PALABRAS);
+
+    palabraAdivinar = categoriasCombinadas[Math.floor(Math.random() * categoriasCombinadas.length)].toUpperCase();
+    palabraAdivinar = eliminarTildes(palabraAdivinar);
     generarGuionesPalabra(palabraAdivinar);
 }
 
@@ -89,8 +144,13 @@ function eliminarTildes(string) {
     return string;
 }
 
+// Los espacios no se eliminan, así que los suprimimos para comprobar si el jugador ha ganado la partida.
+function contarCaracteresAAdivinar(palabra) {
+    return palabra.replace(/\s/g, "").length;
+}
+
 function checkWin() {
-    return letrasAdivinadas === palabraAdivinar.length;
+    return letrasAdivinadas === contarCaracteresAAdivinar(palabraAdivinar);
 }
 
 function pintarVidas() {
@@ -111,7 +171,7 @@ function checkPalabraContieneLetra(palabraAdivinar, letra) {
     const domGuionesLetra = document.querySelectorAll(".guion-letra");
 
     domGuionesLetra.forEach(function (domGuionLetra) {
-        if (eliminarTildes(domGuionLetra.dataset.letra) === letra) {
+        if (domGuionLetra.dataset.letra === letra) {
             domGuionLetra.innerText = domGuionLetra.dataset.letra;
             letrasAdivinadas++;
         }
@@ -177,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    domReiniciarJuego.addEventListener("click", function() {
+    domReiniciarJuego.addEventListener("click", function () {
         reiniciarJuego();
     })
 

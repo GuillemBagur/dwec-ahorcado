@@ -99,6 +99,16 @@ img {
     color: white;
 }
 
+.subtitle {
+    display: block;
+    margin: auto;
+    padding: .7rem 1.5rem;
+    width: fit-content;
+    background-color: rgb(36, 23, 23);
+    border-radius: 50px;
+    color: white;
+}
+
 .contador-vidas {
     color: rgb(255, 184, 53);
 }
@@ -154,6 +164,10 @@ img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 2rem;
+}
+
+.guion-espacio {
+    width: 1.5rem;
 }
 
 .monigote {
@@ -248,4 +262,18 @@ img {
 
 .efecto-hover:hover::before {
     transform: translateX(0);
+}
+
+.categoria {
+    text-align: left;
+    font-size: 1.3rem;
+    color:rgb(36, 23, 23);
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.categoria-input {
+    transform: scale(1.5);
+    margin-right: .5rem;
+    accent-color: rgb(70, 44, 44);
 }

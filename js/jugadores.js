@@ -52,6 +52,7 @@ function asignarUsuario(nombreUsuario) {
 function dibujarNombresJugadoresGuardados() {
     function crearBtnEliminarJugador(idJugador) {
         const domEliminarJugador = document.createElement("button");
+        domEliminarJugador.type = "button";
         domEliminarJugador.classList.add("btn-eliminar-jugador");
         domEliminarJugador.dataset.idJugador = idJugador;
         domEliminarJugador.innerHTML = "<img src='/imgs/iconos/x.svg' class='btn-eliminar-jugador-icono' />"
@@ -92,8 +93,9 @@ domCrearNuevoJugador.addEventListener("submit", function (e) {
 });
 
 domJugadoresGuardados.addEventListener("click", function (e) {
+
     if (e.target.classList.contains("jugador-guardado")) {
-        asignarUsuario(e.target.innerHTML);
+        asignarUsuario(e.target.innerText);
 
         domCrearNuevoJugador.classList.remove("mostrar");
         activarMain();

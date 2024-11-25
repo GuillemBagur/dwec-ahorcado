@@ -16,3 +16,12 @@
 
 - Crear las imágenes satíricas del ahorcado y implementarlas en el programa.
 - Empezar sistema de elegir usuario antes de empezar la partida.
+
+## 21/11/2024
+
+- Añadir estilos varios.
+- Crear un registro de récords para cada usuario que se cree.
+
+## 25/11/2024
+- Permitir palabras con espacios (un carácter que no cuenta a la hora de adivinar).
+- Generar un JSON con diferentes categorías, y una pantalla para elegir una (o varias) categorías.

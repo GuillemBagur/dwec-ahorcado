@@ -1,7 +1,7 @@
 // Código propio extraído de los ejercicios de "tiempo"
 const cronometro = document.getElementById("cronometro");
 
-const DEFAULT_TIME = [0, 0, 10, 0];
+const DEFAULT_TIME = [0, 0, 60, 0];
 
 let cronoInterval;
 let cronoDate = new Date();

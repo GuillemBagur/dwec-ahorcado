@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El ahorcado</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="main" id="main">
+        <h1 class="titulo">El juego del ahorcado</h1>
+        <h2 class="subtitle">Elige con qué categorías de palabras quieres jugar</h2>
+
+        <form action="index.html" method="GET" class="modal mostrar">
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informática">Informática</label>
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="música">Música</label>
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="países">Países</label>
+
+            <button type="submit" class="btn-bloque">Jugar</button>
+        </form>
+    </main>
+
+    <script src="./js/jugadores.js"></script>
+    <script src="./js/monigote.js"></script>
+    <script src="./js/stats.js"></script>
+    <script src="./js/crono.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
