@@ -14,21 +14,22 @@
         <h1 class="titulo">El juego del ahorcado</h1>
         <h2 class="subtitle">Elige con qué categorías de palabras quieres jugar</h2>
 
-        <form action="index.html" method="GET" class="modal mostrar">
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informática">Informática</label>
+        <form id="contenedor-categorias" action="index.html" method="GET" class="modal mostrar">
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informatica">Informática</label>
             <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="música">Música</label>
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="países">Países</label>
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="musica">Música</label>
+            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="pases">Países</label>
 
             <button type="submit" class="btn-bloque">Jugar</button>
+            <small class="msg-error" id="error-categorias"></small>
         </form>
     </main>
 
-    <script src="./js/jugadores.js"></script>
+    <script src="./js/json.js"></script>
     <script src="./js/monigote.js"></script>
     <script src="./js/stats.js"></script>
     <script src="./js/crono.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/categorias.js"></script>
 </body>
 
 </html>

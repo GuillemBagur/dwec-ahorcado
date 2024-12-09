@@ -55,8 +55,16 @@ function initJuego() {
     initPalabra();
     pintarVidas();
     pintaAbecedario();
-    initCrono();
+    console.log(cronometroController);
+    cronometroController.initCrono();
     desactivarMain();
+}
+
+function validarCategorias(categorias) {
+    if(!categorias | categorias?.length === 0) {
+        sessionStorage.setItem("error", "no-categories");
+        window.location.href = "/categorias.html";
+    }
 }
 
 function obtenerCategoriasDesdeUrl() {
@@ -66,46 +74,26 @@ function obtenerCategoriasDesdeUrl() {
     return categorias;
 }
 
-function combinarCateogorias(categorias, palabras) {
+function combinarCategorias(categorias, palabras, dificultad) {
     let categoriasCombinadas = [];
-
-    // Si el usuario no ha elegido ninguna categoría, se eligirán todas
-    if(categorias.length === 0) {
-        categorias = Object.keys(palabras);
-    } 
-
+    
     for(let categoria of categorias) {
         if(palabras[categoria]) {
-            categoriasCombinadas = [...categoriasCombinadas, ...palabras[categoria]];
+            categoriasCombinadas = [...categoriasCombinadas, ...palabras[categoria][dificultad]];
         }
     }
-
+    
     return categoriasCombinadas;
 }
 
-function initPalabra() {
+async function initPalabra() {
     let categorias = obtenerCategoriasDesdeUrl();
+    validarCategorias(categorias);
 
-    const PALABRAS = {
-        informática: [
-            "JAVA", "DOMINIO", "LINUX", "SERVIDOR", "FRAMEWORK", "TERMINAL", "JAVASCRIPT", "PHP", "WINDOWS", "MACINTOSH", "MICROSOFT", "GOOGLE", "APPLE", "TECLADO", "LIBRERÍA",
-        ],
-
-        deportes: [
-            "GOL", "ATLETISMO", "BICICLETA", "PELOTA", "META", "ENTRENAR", "FUTBOL", "BALONCESTO", "VOLEIBOL", "HOCKEY", "MÚSCULO",
-        ],
-
-        música: [
-            "GUITARRA", "ACORDEÓN", "SINTETIZADOR", "PIANO", "TROMPETA", "MELODÍA", "NOTA", "RITMO", "POLIRRITMIA", "ACORDE", "ARPEGIO", "OSTINATO", "OCTAVA", "HARMONÍA",
-        ],
-
-        países: [
-            "ESPAÑA", "FRANCIA", "ALEMANIA", "ITALIA", "FINLANDIA", "ESTADOS UNIDOS", "RUMANÍA", "ALBANIA", "REINO UNIDO", "EGIPTO", "UCRANIA", "PAÍSES BAJOS", "JAPÓN", "ARGENTINA",
-        ]
-    }
-
-    const categoriasCombinadas = combinarCateogorias(categorias, PALABRAS);
-
+    const datosGuardados = await fetchDatosGuardados("es");
+    const PALABRAS = datosGuardados.palabras;
+    const categoriasCombinadas = combinarCategorias(categorias, PALABRAS, "medio");
+    
     palabraAdivinar = categoriasCombinadas[Math.floor(Math.random() * categoriasCombinadas.length)].toUpperCase();
     palabraAdivinar = eliminarTildes(palabraAdivinar);
     generarGuionesPalabra(palabraAdivinar);
@@ -196,7 +184,7 @@ function mostrarFinJuego(isWin) {
 
     if (isWin) {
         domMsgFinJuego.innerHTML = "¡Has ganado!";
-        const registro = new Record(jugador, palabraAdivinar, vidas, calcularIntentos(), obtenerSegundosTotalesCrono());
+        const registro = new Record(jugador, palabraAdivinar, vidas, calcularIntentos(), cronometroController.obtenerSegundosTotalesCrono());
         registro.guardar();
 
     } else {
@@ -213,16 +201,16 @@ function reiniciarJuego() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-
     domAbecedario.addEventListener("click", function (e) {
         if (!isPlaying) {
             return;
         }
 
         if (e.target.classList.contains("letra") && esPulsable(e.target)) {
-
             const domLetra = e.target;
-            iniciarCrono();
+            cronometroController.iniciarCrono();
+            cuentaAtrasController.initCrono();
+            cuentaAtrasController.iniciarCrono();
 
             if (checkPalabraContieneLetra(palabraAdivinar, domLetra.innerText)) {
                 domLetra.classList.add("correcta");

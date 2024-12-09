@@ -1,0 +1,12 @@
+{
+    "es": {
+        "palabras": {
+            "informatica": {
+                "facil": ["JAVA", "PHP", "GOOGLE", "APPLE"],
+                "medio": ["DOMINIO", "LINUX", "WINDOWS", "TECLADO", "LIBRERÍA"],
+                "dificil": ["SERVIDOR", "FRAMEWORK", "TERMINAL", "JAVASCRIPT", "MACINTOSH", "MICROSOFT"]
+            }
+        },
+        "partidas": []
+    }
+}
