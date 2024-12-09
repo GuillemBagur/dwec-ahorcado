@@ -25,3 +25,8 @@
 ## 25/11/2024
 - Permitir palabras con espacios (un carácter que no cuenta a la hora de adivinar).
 - Generar un JSON con diferentes categorías, y una pantalla para elegir una (o varias) categorías.
+
+## 09/12/2024
+- Refactorizar código de cronómetro, y convertirlo en una clase.
+- Implementar la cuenta atrás.
+- Empezamos a usar el servidor de JSON para obtener las palabras.
