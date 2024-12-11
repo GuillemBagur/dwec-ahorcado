@@ -5,7 +5,22 @@
                 "facil": ["JAVA", "PHP", "GOOGLE", "APPLE"],
                 "medio": ["DOMINIO", "LINUX", "WINDOWS", "TECLADO", "LIBRERÍA"],
                 "dificil": ["SERVIDOR", "FRAMEWORK", "TERMINAL", "JAVASCRIPT", "MACINTOSH", "MICROSOFT"]
-            }
+            },
+            "deportes": {
+                "facil": ["GOLF", "SURF", "PESCA", "BOX"],
+                "medio": ["FÚTBOL", "TENIS", "RUGBY", "ESGRIMA", "CICLISMO"],
+                "dificil": ["BALONCESTO", "VOLIBOL", "NATACIÓN", "BADMINTON", "TRIATLÓN", "SNOWBOARD"]
+            },
+            "musica": {
+                "facil": ["DO", "SOL", "FA", "RAP", "POP"],
+                "medio": ["PIANO", "VIOLÍN", "ÓRGANO", "FLAUTA", "CORISTA"],
+                "dificil": ["GUITARRA", "SINFONÍA", "TROMPETA", "ARPA CLÁSICA", "BATERISTA", "DIRECTOR"]
+            },
+            "paises": {
+                "facil": ["PERÚ", "CHAD", "OMÁN", "IRÁN", "LAOS"],
+                "medio": ["BRASIL", "MÉXICO", "SUECIA", "EGIPTO", "AUSTRIA"],
+                "dificil": ["ARGENTINA", "PALESTINA", "BANGLADESH", "VENEZUELA", "FILIPINAS", "MADAGASCAR"]
+            }                                          
         },
         "partidas": []
     }
