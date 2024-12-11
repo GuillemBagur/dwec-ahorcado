@@ -7,6 +7,10 @@ function obtenerError() {
     return error;
 }
 
+function capitalize(string) {
+    return String(string).charAt(0).toUpperCase() + String(string).slice(1);
+}
+
 function mostrarErrores() {
     const error = obtenerError();
 
@@ -20,8 +24,15 @@ function getCategorias(datosGuardados) {
     return Object.keys(datosGuardados.palabras);
 }
 
-/* async function dibujarCategorias() {
-    const datosGuardados = await fetchDatosGuardados();
+async function dibujarCategorias() {
+    const datosJSON = await fetchDatosJSON();
+    const categorias = getCategorias(datosJSON);
+
+    domContenedorCategorias.innerHTML = "";
+    for(let categoria of categorias) {
+        domContenedorCategorias.innerHTML += `<label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="${categoria}">${capitalize(categoria)}</label>`;
+    }
 }
- */
+
+dibujarCategorias();
 mostrarErrores();

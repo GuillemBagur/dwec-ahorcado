@@ -98,7 +98,7 @@ async function initPalabra() {
     let categorias = obtenerCategoriasDesdeUrl();
     validarCategorias(categorias);
 
-    const datosGuardados = await fetchDatosGuardados("es");
+    const datosGuardados = await fetchDatosJSON("es");
     const PALABRAS = datosGuardados.palabras;
     const categoriasCombinadas = combinarCategorias(categorias, PALABRAS, obtenerDificultadDesdeUrl());
     

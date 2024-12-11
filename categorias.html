@@ -14,13 +14,16 @@
         <h1 class="titulo">El juego del ahorcado</h1>
         <h2 class="subtitle">Elige con qué categorías de palabras quieres jugar</h2>
 
-        <form id="contenedor-categorias" action="index.html" method="GET" class="formulario modal mostrar">
+        <form action="index.html" method="GET" class="formulario modal mostrar">
             <fieldset>
                 <legend>Categoría</legend>
-                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informatica">Informática</label>
-                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
-                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="musica">Música</label>
-                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="paises">Países</label>
+
+                <div id="contenedor-categorias">
+                    <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informatica">Informática</label>
+                    <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
+                    <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="musica">Música</label>
+                    <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="paises">Países</label>
+                </div>
             </fieldset>
 
             <fieldset>
@@ -36,9 +39,6 @@
     </main>
 
     <script src="./js/json.js"></script>
-    <script src="./js/monigote.js"></script>
-    <script src="./js/stats.js"></script>
-    <script src="./js/crono.js"></script>
     <script src="./js/categorias.js"></script>
 </body>
 
