@@ -14,11 +14,21 @@
         <h1 class="titulo">El juego del ahorcado</h1>
         <h2 class="subtitle">Elige con qué categorías de palabras quieres jugar</h2>
 
-        <form id="contenedor-categorias" action="index.html" method="GET" class="modal mostrar">
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informatica">Informática</label>
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="musica">Música</label>
-            <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="paises">Países</label>
+        <form id="contenedor-categorias" action="index.html" method="GET" class="formulario modal mostrar">
+            <fieldset>
+                <legend>Categoría</legend>
+                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="informatica">Informática</label>
+                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="deportes">Deportes</label>
+                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="musica">Música</label>
+                <label class="categoria"><input class="categoria-input" type="checkbox" name="categoria" value="paises">Países</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dificultad</legend>
+                <label class="categoria"><input class="categoria-input" type="radio" name="dificultad" value="facil">Fácil</label>
+                <label class="categoria"><input class="categoria-input" type="radio" name="dificultad" value="medio" checked>Medio</label>
+                <label class="categoria"><input class="categoria-input" type="radio" name="dificultad" value="dificil">Difícil</label>
+            </fieldset>
 
             <button type="submit" class="btn-bloque">Jugar</button>
             <small class="msg-error" id="error-categorias"></small>

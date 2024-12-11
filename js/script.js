@@ -66,12 +66,21 @@ function validarCategorias(categorias) {
     }
 }
 
+
 function obtenerCategoriasDesdeUrl() {
     let params = new URLSearchParams(document.location.search);
     let categorias = params.getAll("categoria");
 
     return categorias;
 }
+
+function obtenerDificultadDesdeUrl() {
+    let params = new URLSearchParams(document.location.search);
+    let dificultad = params.get("dificultad") ?? "medio";
+
+    return dificultad;
+}
+
 
 function combinarCategorias(categorias, palabras, dificultad) {
     let categoriasCombinadas = [];
@@ -91,7 +100,7 @@ async function initPalabra() {
 
     const datosGuardados = await fetchDatosGuardados("es");
     const PALABRAS = datosGuardados.palabras;
-    const categoriasCombinadas = combinarCategorias(categorias, PALABRAS, "medio");
+    const categoriasCombinadas = combinarCategorias(categorias, PALABRAS, obtenerDificultadDesdeUrl());
     
     palabraAdivinar = categoriasCombinadas[Math.floor(Math.random() * categoriasCombinadas.length)].toUpperCase();
     palabraAdivinar = eliminarTildes(palabraAdivinar);

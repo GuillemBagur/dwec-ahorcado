@@ -306,3 +306,16 @@ img {
 .msg-error.visible {
     visibility: visible;
 }
+
+.formulario fieldset {
+    border: 2px solid rgba(131, 90, 15, .5);
+    border-radius: 8px;
+    padding: .5rem 1rem;
+}
+
+.formulario legend {
+    background-color: rgb(255, 248, 219);
+    padding: .5rem;
+    font-size: 1.2rem;
+    color: rgb(36, 23, 23);
+}

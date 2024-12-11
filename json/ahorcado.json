@@ -8,17 +8,17 @@
             },
             "deportes": {
                 "facil": ["GOLF", "SURF", "PESCA", "BOX"],
-                "medio": ["FÚTBOL", "TENIS", "RUGBY", "ESGRIMA", "CICLISMO"],
-                "dificil": ["BALONCESTO", "VOLIBOL", "NATACIÓN", "BADMINTON", "TRIATLÓN", "SNOWBOARD"]
+                "medio": ["FUTBOL", "TENIS", "RUGBY", "ESGRIMA", "CICLISMO"],
+                "dificil": ["BALONCESTO", "VOLIBOL", "NATACION", "BADMINTON", "TRIATLON", "SNOWBOARD"]
             },
             "musica": {
                 "facil": ["DO", "SOL", "FA", "RAP", "POP"],
-                "medio": ["PIANO", "VIOLÍN", "ÓRGANO", "FLAUTA", "CORISTA"],
-                "dificil": ["GUITARRA", "SINFONÍA", "TROMPETA", "ARPA CLÁSICA", "BATERISTA", "DIRECTOR"]
+                "medio": ["PIANO", "VIOLIN", "ORGANO", "FLAUTA", "ACORDE", "MELODIA"],
+                "dificil": ["GUITARRA", "SINFONIA", "TROMPETA", "BATERISTA", "DIRECTOR"]
             },
             "paises": {
-                "facil": ["PERÚ", "CHAD", "OMÁN", "IRÁN", "LAOS"],
-                "medio": ["BRASIL", "MÉXICO", "SUECIA", "EGIPTO", "AUSTRIA"],
+                "facil": ["PERU", "CHAD", "ITALIA", "MALTA"],
+                "medio": ["BRASIL", "MEXICO", "SUECIA", "EGIPTO", "AUSTRIA", "FINLANDIA", "FRANCIA", "ALEMANIA"],
                 "dificil": ["ARGENTINA", "PALESTINA", "BANGLADESH", "VENEZUELA", "FILIPINAS", "MADAGASCAR"]
             }                                          
         },
