@@ -15,4 +15,4 @@ Empiezas con siete vidas. Debes ir adivinando la palabra pulsando letra por letr
 Si has adivinado la palabra entera, ¡enhorabuena, has ganado! La puntuación se ha guardado en el LocalStorage para tu jugador. Pulsa `reiniciar` para empezar una nueva partida.
 
 ## 4. (b) Has perdido...
-Si te has quedado sin vidas, lamento decirte que has perdido la partida. La puntuación **no** se ha guardado en el LocalStorage para tu jugador. Pulsa `reiniciar` para empezar una nueva partida. ¡Suerte para la próxima vez!
+Si te has quedado sin vidas, lamento decirte que has perdido la partida. La puntuación **NO** se ha guardado en el LocalStorage para tu jugador. Pulsa `reiniciar` para empezar una nueva partida. ¡Suerte para la próxima vez!
