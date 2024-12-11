@@ -55,7 +55,6 @@ function initJuego() {
     initPalabra();
     pintarVidas();
     pintaAbecedario();
-    console.log(cronometroController);
     cronometroController.initCrono();
     desactivarMain();
 }
@@ -231,6 +230,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     initJuego();
-    console.log(palabraAdivinar);
-
 });

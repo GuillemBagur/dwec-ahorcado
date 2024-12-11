@@ -7,7 +7,6 @@ class Cronometro {
         this.estaCronoActivo = false;
         this.inc = inc;
         this.finishCuentaAtrasCallback = finishCuentaAtrasCallback;
-        console.log(this.estaCronoActivo);
         
         this.cronoDate = new Date();
         this.initCrono();
