@@ -7,9 +7,9 @@
                 "dificil": ["SERVIDOR", "FRAMEWORK", "TERMINAL", "JAVASCRIPT", "MACINTOSH", "MICROSOFT"]
             },
             "deportes": {
-                "facil": ["GOLF", "SURF", "PESCA", "BOX"],
-                "medio": ["FUTBOL", "TENIS", "RUGBY", "ESGRIMA", "CICLISMO"],
-                "dificil": ["BALONCESTO", "VOLIBOL", "NATACION", "BADMINTON", "TRIATLON", "SNOWBOARD"]
+                "facil": ["GOLF", "SURF", "BOLA", "GOL"],
+                "medio": ["FUTBOL", "TENIS", "RUGBY", "CICLISMO"],
+                "dificil": ["BALONCESTO", "VOLEIBOL", "NATACION", "BADMINTON", "TRIATLON", "SNOWBOARD"]
             },
             "musica": {
                 "facil": ["DO", "SOL", "FA", "RAP", "POP"],
